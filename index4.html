@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script>(function(){var h=document.documentElement;h.classList.remove("light","dark");h.style.background="#fbf9f8";h.style.color="#1b1c1c";})()</script><style>
+*,*::before,*::after{box-sizing:border-box}html,body{transition:none!important;margin:0;padding:0}a{color:inherit;text-decoration:none}button{border:none;background:none;cursor:pointer}.text-on-surface-variant{color:#363a33!important}html.dark .text-on-surface-variant{color:rgba(180,196,175,.7)!important}.text-outline{color:#5a6058!important}html.dark .text-outline{color:rgba(180,196,175,.65)!important}.text-on-surface{color:#1b1c1c!important}html.dark .text-on-surface{color:#d4ddd0!important}.text-on-surface-variant{color:#3a3f37!important}.text-outline{color:#54594f!important}[class*="text-on-surface-variant"]{color:#3a3f37}html.dark .text-on-surface-variant{color:rgba(190,205,184,.7)!important}html.dark .text-outline{color:rgba(190,205,184,.65)!important}html.dark [class*="text-on-surface-variant"]{color:rgba(190,205,184,.7)!important}.material-symbols-outlined{font-family:"Material Symbols Outlined";font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased;}#nhj-mode-toggle{position:fixed;bottom:28px;right:28px;z-index:9999;width:52px;height:52px;border-radius:9999px;display:flex;align-items:center;justify-content:center;background:#fff;color:#4a6545;box-shadow:0 4px 20px rgba(0,0,0,.12);}html.dark #nhj-mode-toggle{background:#1c2a1e!important;color:#ffffff!important;}html.dark #nhj-mode-toggle .nhj-icon-light{opacity:0!important;}html.dark #nhj-mode-toggle .nhj-icon-dark{opacity:1!important;color:#ffffff!important;}#nhj-header{position:sticky!important;top:0!important;z-index:50!important;width:100%!important;box-sizing:border-box!important}#nhj-header nav{display:flex!important;justify-content:space-between!important;align-items:center!important;padding:16px 24px!important;width:100%!important;max-width:1440px!important;margin:0 auto!important;box-sizing:border-box!important}
+html.dark{background:#111712!important;color:#d4ddd0!important}html.dark .text-on-surface-variant,html.dark [class*="text-on-surface-variant"]{color:rgba(190,205,184,.7)!important}html.dark .text-on-surface{color:#d4ddd0!important}html.dark select,html.dark .bg-surface-container{background:#1c2a1e!important;color:#d4ddd0!important}
+html.light,html:not(.dark){background:#fbf9f8!important;color:#1b1c1c!important}
+
+
+
+
+
+</style>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>구매하기 - Natural Harmony Journey</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"/>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        corePlugins: { preflight: false },
+        theme: { extend: {
+          colors: {
+            "primary":"#4a6545","on-primary":"#ffffff","background":"#fbf9f8",
+            "surface":"#fbf9f8","on-surface":"#1b1c1c","secondary-container":"#dbe5d8",
+            "on-secondary-container":"#4a6545","outline":"#5a6058","outline-variant":"#9ba298",
+            "surface-container-low":"#f5f3f3","surface-container":"#efeded",
+            "surface-container-high":"#eae8e7","surface-container-highest":"#e4e2e2",
+            "surface-container-lowest":"#ffffff","surface-variant":"#e4e2e2",
+            "primary-container":"#a8c69f","tertiary":"#48663d","tertiary-container":"#a5c796",
+            "on-tertiary-container":"#37542d","on-surface-variant":"#363a33","secondary":"#576157","on-background":"#1b1c1c"
+          },
+          borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" },
+          spacing: { xs:"4px",sm:"8px",md:"16px",lg:"24px",gutter:"24px",xl:"48px",section:"80px","container-max":"1280px",unit:"4px" },
+          fontFamily: { sans:["Pretendard","sans-serif"] },
+          fontSize: {
+            "headline-xl":["48px",{lineHeight:"1.2",letterSpacing:"-0.02em",fontWeight:"700"}],
+            "headline-lg":["32px",{lineHeight:"1.3",letterSpacing:"-0.01em",fontWeight:"700"}],
+            "headline-md":["24px",{lineHeight:"1.4",fontWeight:"600"}],
+            "body-lg":["18px",{lineHeight:"1.6",fontWeight:"400"}],
+            "body-md":["16px",{lineHeight:"1.6",fontWeight:"400"}],
+            "label-sm":["12px",{lineHeight:"1.0",letterSpacing:"0.02em",fontWeight:"600"}]
+          }
+        }}
+      }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+
+        /* 스크롤 Reveal */
+        @media (prefers-reduced-motion: no-preference) {
+            [data-reveal] {
+                opacity: 0; transform: translateY(28px); filter: blur(3px);
+                transition: opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .6s ease;
+            }
+            [data-reveal][data-delay="1"] { transition-delay:.08s; }
+            [data-reveal][data-delay="2"] { transition-delay:.16s; }
+            [data-reveal][data-delay="3"] { transition-delay:.24s; }
+            [data-reveal][data-delay="4"] { transition-delay:.32s; }
+            [data-reveal].revealed { opacity:1; transform:translateY(0); filter:blur(0); }
+        }
+
+        /* 필터 버튼 */
+        .filter-btn { transition: background-color .3s ease, color .3s ease, transform .2s ease; }
+        .filter-btn:hover  { transform: translateY(-2px); }
+        .filter-btn:active { transform: scale(.96); }
+
+        /* 상품 카드 hover */
+        .card-item {
+            transition: transform .4s cubic-bezier(.34,1.56,.64,1), filter .4s ease, opacity .3s ease;
+        }
+        .card-item:hover {
+            transform: translateY(-6px);
+            filter: drop-shadow(0 12px 20px rgba(74,101,69,.18));
+        }
+        .card-item.hiding { opacity:0; transform:scale(.96); }
+
+        /* 다크모드 — 이 페이지 고유 */
+        html.dark .filter-btn.bg-primary             { background-color:#6a9464 !important; color:#111712 !important; }
+        html.dark .filter-btn.bg-surface-container   { background-color:#253028 !important; color:#d4ddd0 !important; }
+        html.dark .filter-btn.bg-surface-container:hover { background-color:rgba(106,148,100,.15) !important; }
+
+        /* 테두리 다크 */
+        html.dark .border-outline-variant\/20,
+        html.dark .border-outline-variant\/30 { border-color: rgba(106,148,100,.15) !important; }
+        html.dark .border-b.border-outline-variant\/20 { border-color: rgba(106,148,100,.15) !important; }
+    </style>
+    
+</head>
+<body class="font-sans overflow-x-hidden">
+    <header id="nhj-header" style="background:rgba(255,255,255,.40);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:50;width:100%;border-bottom:1px solid rgba(74,101,69,.10);box-sizing:border-box;">
+<nav style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;width:100%;max-width:1440px;margin:0 auto;box-sizing:border-box;">
+<div style="display:flex;flex-direction:column;align-items:flex-start;flex-shrink:0;">
+    <a href="index.html"
+       style="font-size:clamp(13px,1.8vw,22px);font-weight:700;color:#4a6545;text-decoration:none;white-space:nowrap;">
+        Natural Harmony Journey
+    </a>
+    <span style="
+        font-size:12px;
+        font-weight:400;
+        color:rgba(74,101,69,.75);
+        margin-top:2px;
+        letter-spacing:0.02em;
+    ">
+        운명의 식물을 찾아드립니다
+    </span>
+</div>
+<div id="nhj-nav-links" style="display:flex;align-items:center;gap:32px;"><a href="index2.html" style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:rgba(74,101,69,.65);text-decoration:none;" onmouseover="this.style.color='#4a6545'" onmouseout="this.style.color='rgba(74,101,69,.65)'">테스트</a><a href="index4.html" style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#4a6545;border-bottom:2px solid #4a6545;padding-bottom:2px;text-decoration:none;" onmouseover="this.style.color='#4a6545'" onmouseout="this.style.color='#4a6545'">구매하기</a></div>
+<div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+<a href="index7.html" style="color:#4a6545;line-height:0;text-decoration:none;" aria-label="로그인" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined">person</span></a>
+<button onclick="NHJCart.openPopup()" aria-label="장바구니" style="background:none;border:none;cursor:pointer;color:#4a6545;position:relative;line-height:0;padding:0;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined">shopping_cart</span><span id="nhj-cart-count" style="position:absolute;top:-8px;right:-8px;background:#4a6545;color:#fff;font-size:10px;width:16px;height:16px;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-family:'Pretendard',sans-serif;font-weight:600;">0</span></button>
+<button id="nhj-menu-btn" aria-label="메뉴" style="display:none;background:none;border:none;cursor:pointer;color:#4a6545;line-height:0;padding:0;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined" id="nhj-menu-icon">menu</span></button>
+</div>
+</nav>
+<div id="nhj-mobile-menu" style="display:none;overflow:hidden;max-height:0;border-top:1px solid rgba(74,101,69,.10);transition:max-height .35s cubic-bezier(.22,1,.36,1);">
+<div style="display:flex;flex-direction:column;padding:8px 24px 16px;gap:2px;">
+<a href="index2.html" style="padding:12px 16px;border-radius:8px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:rgba(74,101,69,.65);text-decoration:none;" onmouseover="this.style.background='rgba(74,101,69,.05)';this.style.color='#4a6545'" onmouseout="this.style.background='none';this.style.color='rgba(74,101,69,.65)'">Test</a>
+<a href="index4.html" style="padding:12px 16px;border-radius:8px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:rgba(74,101,69,.65);text-decoration:none;" onmouseover="this.style.background='rgba(74,101,69,.05)';this.style.color='#4a6545'" onmouseout="this.style.background='none';this.style.color='rgba(74,101,69,.65)'">Purchase</a>
+<a href="index7.html" style="padding:12px 16px;border-radius:8px;font-size:13px;font-weight:600;color:rgba(74,101,69,.65);text-decoration:none;" onmouseover="this.style.background='rgba(74,101,69,.05)';this.style.color='#4a6545'" onmouseout="this.style.background='none';this.style.color='rgba(74,101,69,.65)'">로그인 / 회원가입</a>
+</div></div>
+<style>@media(max-width:767px){#nhj-nav-links{display:none!important}#nhj-menu-btn{display:block!important}}html.dark #nhj-header{background:rgba(17,23,18,.85)!important;border-bottom-color:rgba(106,148,100,.10)!important}html.dark #nhj-header a,html.dark #nhj-header button{color:#6a9464!important}html.dark #nhj-mobile-menu{background:#181f19;border-top-color:rgba(106,148,100,.10)}html.dark #nhj-mobile-menu a{color:rgba(180,196,175,.55)!important}</style>
+</header>
+
+    <main class="max-w-[1440px] mx-auto px-8 md:px-12 py-8">
+        <!-- Breadcrumb -->
+        <nav class="mb-8 flex items-center space-x-2 text-on-surface-variant text-[12px] font-semibold tracking-[0.02em]">
+            <a style="color:#4a6545;text-decoration:none;font-size:12px;font-weight:600;" href="index.html"
+               onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">홈</a>
+            <span style="font-size:14px;" class="material-symbols-outlined ">chevron_right</span>
+            <span class="text-primary font-bold">구매하기</span>
+        </nav>
+
+        <!-- 페이지 제목 & 필터 -->
+        <section class="mb-section">
+            <h1 class="text-[28px] md:text-[40px] lg:text-[48px] font-bold leading-tight tracking-tight text-primary mb-8" data-reveal>상품 구매</h1>
+
+            <!-- 검색 -->
+            <div class="relative mb-6" data-reveal data-delay="1">
+                <span style="font-size:20px;" class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant ">search</span>
+                <input id="search-input" type="text" placeholder="식물 이름으로 검색..."
+                    oninput="applyFilters()"
+                    class="w-full pl-12 pr-4 py-3 bg-surface-container-low rounded-xl border border-outline-variant/30
+                           text-on-surface placeholder:text-on-surface-variant
+                           focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10
+                           transition-all text-[15px]"/>
+            </div>
+
+            <!-- 카테고리 필터 -->
+            <div class="flex flex-wrap gap-3 mb-4" id="filter-bar">
+                <button onclick="setFilter('all')"      data-filter="all"      class="filter-btn px-5 py-2 bg-primary text-on-primary text-[12px] font-semibold tracking-[0.02em] rounded-full">전체</button>
+                <button onclick="setFilter('interior')" data-filter="interior" class="filter-btn px-5 py-2 bg-surface-container text-on-surface text-[12px] font-semibold tracking-[0.02em] rounded-full hover:bg-secondary-container transition-colors">인테리어 대형</button>
+                <button onclick="setFilter('airpurify')"data-filter="airpurify"class="filter-btn px-5 py-2 bg-surface-container text-on-surface text-[12px] font-semibold tracking-[0.02em] rounded-full hover:bg-secondary-container transition-colors">공기 정화</button>
+                <button onclick="setFilter('easy')"     data-filter="easy"     class="filter-btn px-5 py-2 bg-surface-container text-on-surface text-[12px] font-semibold tracking-[0.02em] rounded-full hover:bg-secondary-container transition-colors">초보자·방치형</button>
+                <button onclick="setFilter('water')"    data-filter="water"    class="filter-btn px-5 py-2 bg-surface-container text-on-surface text-[12px] font-semibold tracking-[0.02em] rounded-full hover:bg-secondary-container transition-colors">수경재배·허브</button>
+            </div>
+
+            <!-- 세부 필터 -->
+            <div class="flex flex-wrap gap-4 items-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-[12px] font-semibold text-on-surface-variant">가격</span>
+                    <select id="filter-price" onchange="applyFilters()"
+                        class="text-[12px] font-semibold bg-surface-container text-on-surface px-3 py-1.5 rounded-lg border border-outline-variant/20 focus:outline-none focus:border-primary/50 cursor-pointer">
+                        <option value="all">전체</option>
+                        <option value="low">~₩20,000</option>
+                        <option value="mid">₩20,000~₩50,000</option>
+                        <option value="high">₩50,000~</option>
+                    </select>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-[12px] font-semibold text-on-surface-variant">난이도</span>
+                    <select id="filter-difficulty" onchange="applyFilters()"
+                        class="text-[12px] font-semibold bg-surface-container text-on-surface px-3 py-1.5 rounded-lg border border-outline-variant/20 focus:outline-none focus:border-primary/50 cursor-pointer">
+                        <option value="all">전체</option>
+                        <option value="easy">쉬움 (초보자)</option>
+                        <option value="hard">어려움 (숙련자)</option>
+                    </select>
+                </div>
+                <button onclick="resetFilters()" class="text-[12px] font-semibold text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 ml-auto">
+                    <span style="font-size:14px;" class="material-symbols-outlined ">restart_alt</span>
+                    초기화
+                </button>
+            </div>
+        </section>
+
+        <!-- 결과 수 & 정렬 -->
+        <div class="flex justify-between items-center mb-8">
+            <span id="result-count" class="text-[14px] text-on-surface-variant">총 16개의 결과</span>
+            <select id="sort-select" onchange="applyFilters()"
+                class="text-[12px] font-semibold bg-transparent text-primary border-b border-primary/20 pb-1 focus:outline-none cursor-pointer">
+                <option value="popular">인기순</option>
+                <option value="price-asc">낮은 가격순</option>
+                <option value="price-desc">높은 가격순</option>
+                <option value="name">이름순</option>
+            </select>
+        </div>
+
+        <!-- 상품 그리드 -->
+        <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-gutter gap-y-16">
+
+            <div class="group cursor-pointer card-item" data-category="interior" data-price="89000" data-difficulty="hard">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=1" class="block w-full h-full">
+                        <img alt="여인목" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA1MjVfNDYg/MDAxNzc5Njg1Mjk0NjIx.BCwiTWScG_5kKnZcMs-Zw-MSgR9DokEuOYkni47-bIMg.84RiZd-j9BaICOG1VlQJ9xsBPojxvLq2wvEHnEbTDNcg.PNG/%EC%97%AC%EC%9D%B8%EB%AA%A9.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:1,name:'여인목',price:'₩89,000',priceNum:89000,img:'https://contents.sixshop.com/thumbnails/uploadedFiles/20883/product/image_1701421663258_750.jpg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-1" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(1)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                    <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-white/80 backdrop-blur-sm text-primary text-[12px] font-semibold rounded-full">신상품</span></div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">여인목</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">실내용 • 대형</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩89,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="interior" data-price="75000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=2" class="block w-full h-full">
+                        <img alt="아라우카리아" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA1MjVfMjc2/MDAxNzc5Njg1Mjk0NjM2.PFKU-x6502yNgkgU7-A3JxOnzlkZ0cPx_mgq3kjvvEMg.6A_cssMo2cQNHuBWOzZc7K6kVhLT2hQmCKiDQq8xkIcg.PNG/%EC%95%84%EB%9D%BC%EC%9A%B0%EC%B9%B4%EB%A6%AC%EC%95%84.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:2,name:'아라우카리아',price:'₩75,000',priceNum:75000,img:'https://contents.sixshop.com/thumbnails/uploadedFiles/20883/product/image_1732090805163_750.jpg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-2" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(2)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">아라우카리아</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">관상수 • 대형</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩75,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="easy" data-price="22000" data-difficulty="hard">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=3" class="block w-full h-full">
+                        <img alt="프렌치라벤더" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA1MjVfMjQg/MDAxNzc5Njg1Mjk0NDk4.XeLWKa7-He8su-uKnpvVgM0qLOHKrnsChHtCui_ElsMg.1EMLkFIkfdSOyHMEhW_RSry5jsqvd-89DjSUa7NGFVkg.PNG/%ED%94%84%EB%A0%8C%EC%B9%98%EB%9D%BC%EB%B2%A4%EB%8D%94.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:3,name:'프렌치라벤더',price:'₩22,000',priceNum:22000,img:'https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/d0ca/aa953a48c411da0806a070506750821575bcbbe0e19093665ed5de224da7.png',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-3" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(3)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                    <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-primary text-on-primary text-[12px] font-semibold rounded-full">베스트셀러</span></div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">프렌치라벤더</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">반음지 • 중형</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩22,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="easy" data-price="50000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=4" class="block w-full h-full">
+                        <img alt="보석란" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA2MDFfNzAg/MDAxNzgwMzIyNjI4Mjkx.63jnZLAcaaelYOaF9Hcc5ilPQ3SufdUrWSpPBn0ZgHIg.HVfsMeVZciFtiWN29KCpfk3nKD6XiX4Hbw01wgYFp8Ig.PNG/ChatGPT_Image_2026%EB%85%84_6%EC%9B%94_1%EC%9D%BC_%EC%98%A4%ED%9B%84_10_51_05.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:4,name:'보석란',price:'₩50,000',priceNum:50000,img:'https://botanical.house/wp-content/uploads/2020/09/re_3bdb1c.jpg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-4" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(4)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">보석란</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">반음지 • 중형</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩50,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="water" data-price="25000" data-difficulty="hard">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=5" class="block w-full h-full">
+                        <img alt="유칼립투스" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA1MjVfNjkg/MDAxNzc5Njg1Mjk0NTk0.om7gefY-jIBwh_n9Lgs5VMSFiSNc1aGGC5Pcp6ED7EUg.8DcPirjZOLX7-BHmW7zD9S0gtT2QMW77iRxU4Iu2fE0g.PNG/%EC%9C%A0%EC%B9%BC%EB%A6%BD%ED%88%AC%EC%8A%A4.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:5,name:'유칼립투스',price:'₩25,000',priceNum:25000,img:'https://f-mans.com/data/goods/1/2024/02/861_temp_17078039247780view.jpg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-5" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(5)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">유칼립투스</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">덩굴 • 수경 재배</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩25,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="airpurify" data-price="100000" data-difficulty="hard">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=6" class="block w-full h-full">
+                        <img alt="떡갈고무나무" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA2MDlfMjU2/MDAxNzgwOTM0MTYzMzAx.0yPjSD7v-Oe8dQ_gULojf80PkTiMhD4TcliLF541oFAg.z079rhz5IdBmAI7bSroVjOLGg4lI2CPQxVOUEGyOOFUg.PNG/ChatGPT_Image_2026%EB%85%84_6%EC%9B%94_9%EC%9D%BC_%EC%98%A4%EC%A0%84_12_52_20.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:6,name:'떡갈고무나무',price:'₩100,000',priceNum:100000,img:'https://contents.sixshop.com/thumbnails/uploadedFiles/20883/product/image_1639040636066_750.jpeg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-6" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(6)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">떡갈고무나무</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">관상수 • 공기 정화</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩100,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="water" data-price="5000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=7" class="block w-full h-full">
+                        <img alt="바질" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA2MDFfODAg/MDAxNzgwMzIyNjI4Mjcy.a0KexfPcaQU5aH4iQNcdN2vtSxl-zYGzwsLzOKQU1egg.Xji9nhxF8qax-8MhRJdH9jzz5A-JaJCkZWquhyfof3sg.PNG/ChatGPT_Image_2026%EB%85%84_6%EC%9B%94_1%EC%9D%BC_%EC%98%A4%ED%9B%84_10_46_58.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:7,name:'바질',price:'₩5,000',priceNum:5000,img:'https://housoop.com/data/goods/11/2023/06/255_temp_16861853484336view.jpg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-7" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(7)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">바질</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">허브 • 식용</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩5,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="water" data-price="3000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=8" class="block w-full h-full">
+                        <img alt="개운죽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA2MDFfMTk5/MDAxNzgwMzIyNjI4MTg5.pEl9aofHtOJ4cbkAhQhDGay5dw41EhR19bDeh5lgWaUg.rvJybS4M85FdLazErjdb7n5qaHjDCFLpVlqOk2NT9J4g.PNG/ChatGPT_Image_2026%EB%85%84_6%EC%9B%94_1%EC%9D%BC_%EC%98%A4%ED%9B%84_10_54_26.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:8,name:'개운죽',price:'₩3,000',priceNum:3000,img:'https://item.elandrs.com/upload/prd/orgimg/889/2108223889_0000001.jpg?w=750&h=&q=100',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-8" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(8)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">개운죽</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">초보자 • 수경 재배</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩3,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="interior" data-price="80000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=9" class="block w-full h-full">
+                        <img alt="뱅갈고무나무" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA2MDlfNzAg/MDAxNzgwOTM0MTYzMjkz.Rk9yPrmM_it1b88VzMa3SLj-b1yB7gKDPxKr4Uiq1NIg.sUOxAZuwmmTOCvnf4BumL-d6R-Mb9Gl22T3H_DvBKMYg.PNG/ChatGPT_Image_2026%EB%85%84_6%EC%9B%94_9%EC%9D%BC_%EC%98%A4%EC%A0%84_12_48_04.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:9,name:'뱅갈고무나무',price:'₩80,000',priceNum:80000,img:'https://www.cultwo-flower.com/shopimages/c2c2/025004000077.jpg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-9" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(9)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">뱅갈고무나무</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">실내용 • 대형</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩80,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="easy" data-price="200000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=10" class="block w-full h-full">
+                        <img alt="무륜주" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA2MDlfMjU4/MDAxNzgwOTM0MTYzMTA2.z5go8w9EStM5pMCsY11htKRa1lZXAvt6uDo4QY75dnMg.mLBnEImC7xwAPsXJlseP0_nrMIFM3IkcHBtz2aPc1bIg.PNG/ChatGPT_Image_2026%EB%85%84_6%EC%9B%94_9%EC%9D%BC_%EC%98%A4%EC%A0%84_12_54_31.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:10,name:'무륜주',price:'₩200,000',priceNum:200000,img:'https://contents.sixshop.com/thumbnails/uploadedFiles/20883/product/image_1758013443840_1500.jpeg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-10" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(10)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">무륜주</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">선인장 • 중형</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩200,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="airpurify" data-price="19000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=11" class="block w-full h-full">
+                        <img alt="호야" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA1MjVfMjY0/MDAxNzc5Njg4MTE5ODg4.L8lEKtl-RbG-sVWUFiV9eFeO2fzybDf7dU_rNof8zwYg.ti7JjNiFj0ZrT7fzYWSlAmaPGBWlpdRjVDHV_wqL27Ig.PNG/%ED%98%B8%EC%95%BC.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:11,name:'호야',price:'₩19,000',priceNum:19000,img:'https://www.wishbucket.io/_next/image?url=https%3A%2F%2Fd2gfz7wkiigkmv.cloudfront.net%2Fpickin%2F2%2F1%2F2%2FInYl-guhQP6EJfp8yLjSrw&w=1080&q=75',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-11" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(11)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">호야</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">공기 정화 • 덩굴 식물</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩19,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="easy" data-price="35000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=12" class="block w-full h-full">
+                        <img alt="아데늄" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA1MjVfMTQ3/MDAxNzc5Njg1Mjk0MTI2.O2kpuTr1v5Ful17Ns_8_IDEGvtwgWkRm_jyQKAPq14Eg.zDoMlf5OhOhQyBkdhO_gI5sbr3wPQulW5Tt9hXn1oAEg.PNG/%EC%95%84%EB%8D%B0%EB%8A%84.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:12,name:'아데늄',price:'₩35,000',priceNum:35000,img:'https://ecimg.cafe24img.com/pg955b49925335084/sikmulhaengsung/web/product/small/20260110/9f9eab17193fa454ecc165fce10288de.jpg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-12" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(12)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">아데늄</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">희귀 식물 • 사막 장미</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩35,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="water" data-price="8000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=13" class="block w-full h-full">
+                        <img alt="스킨답서스" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA2MDFfMjkx/MDAxNzgwMzIyNjI4MjM0.GysYWthtIPEJbPM1wNtfPwpHhZQlcM35cjM_M8oLroYg.IWBfPCqAtlMRf3ae2OC4lpJYf-9w0i_2I2NMfms5Kmog.PNG/ChatGPT_Image_2026%EB%85%84_6%EC%9B%94_1%EC%9D%BC_%EC%98%A4%ED%9B%84_10_55_48.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:13,name:'스킨답서스',price:'₩8,000',priceNum:8000,img:'https://www.nongsaro.go.kr/cms_contents/301/19716_MF_ATTACH_01.gif',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-13" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(13)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">스킨답서스</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">수경 재배 • 초보자 추천</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩8,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="airpurify" data-price="50000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=14" class="block w-full h-full">
+                        <img alt="관음죽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA2MDlfMjA3/MDAxNzgwOTM0MTYzMjk3.QczQwjFXDCXYMVn5QyaaxzPIjRNe0hejc2TT1ZlLTQsg.Oi-i4I2-BjV3GjVSsd17Og4wvYaYdwC8X7ZjnbHY758g.PNG/ChatGPT_Image_2026%EB%85%84_6%EC%9B%94_9%EC%9D%BC_%EC%98%A4%EC%A0%84_12_55_50.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:14,name:'관음죽',price:'₩50,000',priceNum:50000,img:'https://nongsaro.go.kr/cms_contents/301/12963_MF_ATTACH_01.jpg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-14" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(14)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">관음죽</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">공기 정화 • 대형</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩50,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="interior" data-price="80000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=15" class="block w-full h-full">
+                        <img alt="테이블야자" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA1MjVfMjk5/MDAxNzc5Njg1Mjk0MzY0.q7naDv8Z9aQR0j_HX6Ckbzi0OmYjzwBkLp0NVAX5NPUg.0BBzdOS4Cf0pgd2Wxc4-Crn95MShigQftcMjiqwuDLMg.PNG/%ED%85%8C%EC%9D%B4%EB%B8%94%EC%95%BC%EC%9E%90.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:15,name:'테이블야자',price:'₩80,000',priceNum:80000,img:'https://www.ozflower.co.kr/data/item/thumb-1563437388698l0_700x700.jpg',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-15" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(15)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">테이블야자</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">인테리어 • 대형</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩80,000</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer card-item" data-category="easy" data-price="18000" data-difficulty="easy">
+                <div class="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative mb-6">
+                    <a href="index5.html?id=16" class="block w-full h-full">
+                        <img alt="스투키" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://postfiles.pstatic.net/MjAyNjA2MDFfMTEz/MDAxNzgwMzIyNjI4MjE3.G4a7fqNiq6ANwe-if0yD98rEArX3tskSPLNXTXzCow8g.64XQqlvsKy1AARtXhEYmZ4uCRwTlcDAiOy8m4uAiA74g.PNG/ChatGPT_Image_2026%EB%85%84_6%EC%9B%94_1%EC%9D%BC_%EC%98%A4%ED%9B%84_10_58_51.png?type=w966"/>
+                    </a>
+                    <div class="absolute bottom-4 right-4 flex flex-col space-y-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="p-3 rounded-full shadow-lg transition-colors" style="background:#ffffff;color:#4a6545;" onclick="event.preventDefault();event.stopPropagation();cartAddFeedback(this,this.closest('.card-item').querySelector('h3')?.textContent||'상품');NHJCart.addItem({id:16,name:'스투키',price:'₩18,000',priceNum:18000,img:'https://image.8dogam.com/resized/product/asset/v1/upload/bb18569146594bf797104c77e448c944.jpg?type=big&res=2x&ext=webp',size:'Medium'})"><span style="font-size:20px;" class="material-symbols-outlined ">shopping_cart</span></button>
+                        <button id="wish-btn-16" onclick="event.preventDefault();event.stopPropagation();toggleCardWishlist(16)" class="p-3 rounded-full shadow-lg transition-all" style="background:#fff;color:#73796f;" title="위시리스트"><span class="material-symbols-outlined" style="font-size:20px;">favorite</span></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div><h3 class="text-[24px] font-semibold text-primary mb-1">스투키</h3><p class="text-[12px] font-semibold text-on-surface-variant tracking-wider">방치형 • 전자파 차단</p></div>
+                    <p class="text-[18px] text-primary font-bold">₩18,000</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer data-nhj-footer></footer>
+
+    <script>
+    let currentCategory = 'all';
+
+    function setFilter(cat) {
+        currentCategory = cat;
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            const active = btn.dataset.filter === cat;
+            btn.className = active
+                ? 'filter-btn px-5 py-2 bg-primary text-on-primary text-[12px] font-semibold tracking-[0.02em] rounded-full'
+                : 'filter-btn px-5 py-2 bg-surface-container text-on-surface text-[12px] font-semibold tracking-[0.02em] rounded-full hover:bg-secondary-container transition-colors';
+        });
+        applyFilters();
+    }
+
+    function applyFilters() {
+        const search     = (document.getElementById('search-input')?.value || '').trim().toLowerCase();
+        const price      = document.getElementById('filter-price')?.value || 'all';
+        const difficulty = document.getElementById('filter-difficulty')?.value || 'all';
+        const sort       = document.getElementById('sort-select')?.value || 'popular';
+        const cards      = Array.from(document.querySelectorAll('.card-item'));
+        let visible      = 0;
+
+        cards.forEach(card => {
+            const matchCat    = currentCategory === 'all' || card.dataset.category === currentCategory;
+            const matchSearch = !search || card.querySelector('h3')?.textContent.toLowerCase().includes(search);
+            const priceNum    = parseInt(card.dataset.price || '0');
+            const matchPrice  = price === 'all'
+                || (price === 'low'  && priceNum < 20000)
+                || (price === 'mid'  && priceNum >= 20000 && priceNum <= 50000)
+                || (price === 'high' && priceNum > 50000);
+            const matchDiff   = difficulty === 'all' || card.dataset.difficulty === difficulty;
+            card._visible = matchCat && matchSearch && matchPrice && matchDiff;
+            if (!card._visible) {
+                card.style.transition = 'opacity .18s ease, transform .18s ease';
+                card.style.opacity = '0'; card.style.transform = 'scale(.96)';
+            }
+        });
+
+        setTimeout(() => {
+            const grid = document.querySelector('.card-grid');
+            const sorted = cards.slice().sort((a, b) => {
+                if (sort === 'price-asc')  return parseInt(a.dataset.price||0) - parseInt(b.dataset.price||0);
+                if (sort === 'price-desc') return parseInt(b.dataset.price||0) - parseInt(a.dataset.price||0);
+                if (sort === 'name') return (a.querySelector('h3')?.textContent||'').localeCompare(b.querySelector('h3')?.textContent||'','ko');
+                return 0;
+            });
+            if (grid) sorted.forEach(card => grid.appendChild(card));
+
+            let delay = 0;
+            cards.forEach(card => {
+                if (!card._visible) {
+                    card.style.display = 'none';
+                } else {
+                    card.style.display = '';
+                    card.style.opacity = '0'; card.style.transform = 'translateY(16px)';
+                    setTimeout(() => {
+                        card.style.transition = 'opacity .4s ease, transform .45s cubic-bezier(.22,1,.36,1)';
+                        card.style.opacity = '1'; card.style.transform = 'translateY(0)';
+                    }, delay);
+                    delay += 45; visible++;
+                }
+            });
+
+            const countEl = document.getElementById('result-count');
+            if (countEl) countEl.textContent = `총 ${visible}개의 결과`;
+
+            let noResult = document.getElementById('no-result');
+            if (visible === 0) {
+                if (!noResult) {
+                    noResult = document.createElement('div');
+                    noResult.id = 'no-result';
+                    noResult.className = 'col-span-full flex flex-col items-center py-24 text-on-surface-variant';
+                    noResult.innerHTML = `<span style="font-size:48px;" class="material-symbols-outlined mb-4 opacity-30">search_off</span><p class="text-[16px] font-semibold">검색 결과가 없어요</p><p class="text-[14px] mt-1">다른 검색어나 필터를 사용해보세요</p>`;
+                    if (grid) grid.appendChild(noResult);
+                }
+            } else if (noResult) noResult.remove();
+        }, 180);
+    }
+
+    function resetFilters() {
+        currentCategory = 'all';
+        document.getElementById('search-input').value = '';
+        document.getElementById('filter-price').value = 'all';
+        document.getElementById('filter-difficulty').value = 'all';
+        document.getElementById('sort-select').value = 'popular';
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.className = btn.dataset.filter === 'all'
+                ? 'filter-btn px-5 py-2 bg-primary text-on-primary text-[12px] font-semibold tracking-[0.02em] rounded-full'
+                : 'filter-btn px-5 py-2 bg-surface-container text-on-surface text-[12px] font-semibold tracking-[0.02em] rounded-full hover:bg-secondary-container transition-colors';
+        });
+        applyFilters();
+    }
+
+    // 위시리스트 토글
+    function toggleCardWishlist(id) {
+        const key  = 'nhj-wishlist';
+        const list = JSON.parse(localStorage.getItem(key) || '[]');
+        const pid  = String(id);
+        const idx  = list.indexOf(pid);
+        const btn  = document.getElementById('wish-btn-' + id);
+        const icon = btn?.querySelector('.material-symbols-outlined');
+        const dark = document.documentElement.classList.contains('dark');
+
+        if (idx === -1) {
+            list.push(pid);
+            if (btn)  { btn.style.background = '#ffe0e0'; btn.style.color = '#e53935'; }
+            if (icon) { icon.style.color = '#e53935'; icon.style.fontVariationSettings = "'FILL' 1,'wght' 400"; }
+            if (typeof NHJToast !== 'undefined') NHJToast.show('위시리스트에 저장했어요 ♥');
+        } else {
+            list.splice(idx, 1);
+            if (btn)  { btn.style.background = dark ? 'rgba(255,255,255,.12)' : '#fff'; btn.style.color = '#73796f'; }
+            if (icon) { icon.style.color = dark ? '#d4ddd0' : '#73796f'; icon.style.fontVariationSettings = "'FILL' 0,'wght' 300"; }
+            if (typeof NHJToast !== 'undefined') NHJToast.show('위시리스트에서 제거했어요');
+        }
+        localStorage.setItem(key, JSON.stringify(list));
+    }
+
+    // 로드 시 위시리스트 상태 반영
+    document.addEventListener('DOMContentLoaded', () => {
+        const existingInit = document.querySelector('[data-wishlist-init]');
+        if (existingInit) return;
+        document.body.setAttribute('data-wishlist-init', '1');
+        const list = JSON.parse(localStorage.getItem('nhj-wishlist') || '[]');
+        const dark = document.documentElement.classList.contains('dark');
+        list.forEach(pid => {
+            const btn  = document.getElementById('wish-btn-' + pid);
+            const icon = btn?.querySelector('.material-symbols-outlined');
+            if (btn)  { btn.style.background = '#ffe0e0'; btn.style.color = '#e53935'; }
+            if (icon) { icon.style.color = '#e53935'; icon.style.fontVariationSettings = "'FILL' 1,'wght' 400"; }
+        });
+    });
+
+    function cartAddFeedback(btn, name) {
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (!icon) return;
+        icon.textContent = 'check';
+        btn.style.background = '#4a6545'; btn.style.color = '#fff';
+        setTimeout(() => { icon.textContent = 'shopping_cart'; btn.style.background = '#ffffff'; btn.style.color = '#4a6545'; }, 1400);
+        if (typeof NHJToast !== 'undefined') NHJToast.show((name ? name + '을(를) ' : '') + '장바구니에 담았어요 🌿');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        // ?filter=XXX (기존 방식) 또는 ?category=XXX (index.html에서 전달) 모두 지원
+        const filter = params.get('category') || params.get('filter');
+        if (filter) setFilter(filter);
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); }});
+            }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+            document.querySelectorAll('.card-item').forEach((card, i) => {
+                card.setAttribute('data-reveal', '');
+                card.setAttribute('data-delay', String((i % 4) + 1));
+                io.observe(card);
+            });
+        }
+    });
+    </script>
+    <script src="nhj-dark.js"></script>
+    <script src="nhj-header.js"></script>
+  <script src="nhj-chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>(function(){var h=document.documentElement;h.classList.remove("light","dark");h.style.background="#fbf9f8";h.style.color="#1b1c1c";})()</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{transition:none!important;margin:0;padding:0}
+    a{color:inherit;text-decoration:none}
+    button{border:none;background:none;cursor:pointer}.text-on-surface-variant{color:#363a33!important}html.dark .text-on-surface-variant{color:rgba(180,196,175,.7)!important}.text-outline{color:#5a6058!important}html.dark .text-outline{color:rgba(180,196,175,.65)!important}.text-on-surface{color:#1b1c1c!important}html.dark .text-on-surface{color:#d4ddd0!important}.text-on-surface-variant{color:#3a3f37!important}.text-outline{color:#54594f!important}[class*="text-on-surface-variant"]{color:#3a3f37}html.dark .text-on-surface-variant{color:rgba(190,205,184,.7)!important}html.dark .text-outline{color:rgba(190,205,184,.65)!important}html.dark [class*="text-on-surface-variant"]{color:rgba(190,205,184,.7)!important}
+    .material-symbols-outlined{font-family:"Material Symbols Outlined";font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased;}
+    #nhj-mode-toggle{position:fixed;bottom:28px;right:28px;z-index:9999;width:52px;height:52px;border-radius:9999px;display:flex;align-items:center;justify-content:center;background:#fff;color:#4a6545;box-shadow:0 4px 20px rgba(0,0,0,.12);}
+    html.dark #nhj-mode-toggle{background:#1c2a1e!important;color:#ffffff!important;}
+    html.dark #nhj-mode-toggle .nhj-icon-light{opacity:0!important;}
+    html.dark #nhj-mode-toggle .nhj-icon-dark{opacity:1!important;color:#ffffff!important;}
+    #nhj-header{position:sticky!important;top:0!important;z-index:50!important;width:100%!important;box-sizing:border-box!important}
+    #nhj-header nav{display:flex!important;justify-content:space-between!important;align-items:center!important;padding:16px 24px!important;width:100%!important;max-width:1440px!important;margin:0 auto!important;box-sizing:border-box!important}
+    html.dark{background:#111712!important;color:#d4ddd0!important}
+    a{color:inherit;text-decoration:none}button{border:none;background:none;cursor:pointer}
+    html.dark .text-on-surface-variant,html.dark [class*="text-on-surface-variant"]{color:rgba(190,205,184,.7)!important}
+    html.dark select,html.dark .bg-surface-container{background:#1c2a1e!important;color:#d4ddd0!important}
+    html.dark .text-on-surface{color:#d4ddd0!important}
+  </style>
+  <title>마이페이지 - Natural Harmony Journey</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      corePlugins: { preflight: false },
+      theme: { extend: {
+        colors: {
+          "primary":"#4a6545","on-primary":"#ffffff","background":"#fbf9f8",
+          "surface":"#fbf9f8","on-surface":"#1b1c1c","secondary-container":"#dbe5d8",
+          "outline":"#5a6058","outline-variant":"#9ba298",
+          "surface-container-low":"#f5f3f3","surface-container":"#efeded",
+          "on-surface-variant":"#363a33",
+        },
+        fontFamily: { sans: ["Pretendard","sans-serif"] }
+      }}
+    }
+  </script>
+  <link crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Pretendard', sans-serif; }
+    .tab-active { border-bottom: 2px solid #4a6545; color: #4a6545; font-weight: 700; }
+    .tab-inactive { border-bottom: 2px solid transparent; color: #73796f; }
+    html.dark .card { background: #1a2119 !important; }
+    html.dark .section-bg { background: #151c16 !important; }
+    :root { --step-bg: #efeded; }
+    html.dark { --step-bg: #253028; }
+    html.dark #consult-category, html.dark #consult-text { background:#1a221b !important; color:#d4ddd0 !important; border-color:rgba(106,148,100,.25) !important; }
+    #consult-category:focus, #consult-text:focus { outline:none; border-color:#4a6545; }
+  </style>
+</head>
+<body class="font-sans">
+
+  <header id="nhj-header" style="background:rgba(255,255,255,.40);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:50;width:100%;border-bottom:1px solid rgba(74,101,69,.10);box-sizing:border-box;">
+<nav style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;width:100%;max-width:1440px;margin:0 auto;box-sizing:border-box;">
+<div style="display:flex;flex-direction:column;align-items:flex-start;flex-shrink:0;">
+    <a href="index.html"
+       style="font-size:clamp(13px,1.8vw,22px);font-weight:700;color:#4a6545;text-decoration:none;white-space:nowrap;">
+        Natural Harmony Journey
+    </a>
+    <span style="
+        font-size:12px;
+        font-weight:400;
+        color:rgba(74,101,69,.75);
+        margin-top:2px;
+        letter-spacing:0.02em;
+    ">
+        운명의 식물을 찾아드립니다
+    </span>
+</div>
+<div id="nhj-nav-links" style="display:flex;align-items:center;gap:32px;"><a href="index2.html" style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:rgba(74,101,69,.65);text-decoration:none;" onmouseover="this.style.color='#4a6545'" onmouseout="this.style.color='rgba(74,101,69,.65)'">테스트</a><a href="index4.html" style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:rgba(74,101,69,.65);text-decoration:none;" onmouseover="this.style.color='#4a6545'" onmouseout="this.style.color='rgba(74,101,69,.65)'">구매하기</a></div>
+<div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+<a href="index7.html" style="color:#4a6545;line-height:0;text-decoration:none;" aria-label="로그인" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined">person</span></a>
+<button onclick="NHJCart.openPopup()" aria-label="장바구니" style="background:none;border:none;cursor:pointer;color:#4a6545;position:relative;line-height:0;padding:0;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined">shopping_cart</span><span id="nhj-cart-count" style="position:absolute;top:-8px;right:-8px;background:#4a6545;color:#fff;font-size:10px;width:16px;height:16px;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-family:'Pretendard',sans-serif;font-weight:600;">0</span></button>
+<button id="nhj-menu-btn" aria-label="메뉴" style="display:none;background:none;border:none;cursor:pointer;color:#4a6545;line-height:0;padding:0;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined" id="nhj-menu-icon">menu</span></button>
+</div>
+</nav>
+<div id="nhj-mobile-menu" style="display:none;overflow:hidden;max-height:0;border-top:1px solid rgba(74,101,69,.10);transition:max-height .35s cubic-bezier(.22,1,.36,1);">
+<div style="display:flex;flex-direction:column;padding:8px 24px 16px;gap:2px;">
+<a href="index2.html" style="padding:12px 16px;border-radius:8px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:rgba(74,101,69,.65);text-decoration:none;" onmouseover="this.style.background='rgba(74,101,69,.05)';this.style.color='#4a6545'" onmouseout="this.style.background='none';this.style.color='rgba(74,101,69,.65)'">Test</a>
+<a href="index4.html" style="padding:12px 16px;border-radius:8px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:rgba(74,101,69,.65);text-decoration:none;" onmouseover="this.style.background='rgba(74,101,69,.05)';this.style.color='#4a6545'" onmouseout="this.style.background='none';this.style.color='rgba(74,101,69,.65)'">Purchase</a>
+<a href="index7.html" style="padding:12px 16px;border-radius:8px;font-size:13px;font-weight:600;color:rgba(74,101,69,.65);text-decoration:none;" onmouseover="this.style.background='rgba(74,101,69,.05)';this.style.color='#4a6545'" onmouseout="this.style.background='none';this.style.color='rgba(74,101,69,.65)'">로그인 / 회원가입</a>
+</div></div>
+<style>@media(max-width:767px){#nhj-nav-links{display:none!important}#nhj-menu-btn{display:block!important}}html.dark #nhj-header{background:rgba(17,23,18,.85)!important;border-bottom-color:rgba(106,148,100,.10)!important}html.dark #nhj-header a,html.dark #nhj-header button{color:#6a9464!important}html.dark #nhj-mobile-menu{background:#181f19;border-top-color:rgba(106,148,100,.10)}html.dark #nhj-mobile-menu a{color:rgba(180,196,175,.55)!important}</style>
+</header>
+
+  <main class="max-w-[1440px] mx-auto px-6 md:px-12 py-12">
+
+    <!-- 프로필 헤더 -->
+    <div id="profile-header" class="flex items-center gap-6 mb-12 p-8 rounded-xl bg-surface-container-low card">
+      <!-- 아바타 -->
+      <div class="w-20 h-20 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+        <span class="material-symbols-outlined text-primary" style="font-size:40px;">person</span>
+      </div>
+      <div class="flex-1">
+        <p class="text-xs font-semibold text-on-surface-variant uppercase tracking-widest mb-1">회원</p>
+        <h1 id="profile-name" class="text-2xl font-bold text-primary mb-1">이름</h1>
+        <p id="profile-email" class="text-sm text-on-surface-variant">이메일</p>
+      </div>
+      <button onclick="handleLogout()"
+        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant text-on-surface-variant text-sm font-semibold hover:border-primary hover:text-primary transition-all">
+        <span class="material-symbols-outlined" style="font-size:18px;">logout</span>
+        로그아웃
+      </button>
+    </div>
+
+    <!-- 탭 -->
+    <div class="flex gap-8 border-b border-outline-variant/30 mb-10">
+      <button onclick="showTab('orders')"   id="tab-orders"   class="tab-active pb-3 text-sm transition-all">주문/배송 조회</button>
+      <button onclick="showTab('wishlist')" id="tab-wishlist" class="tab-inactive pb-3 text-sm transition-all">위시리스트</button>
+      <button onclick="showTab('consult')"  id="tab-consult"  class="tab-inactive pb-3 text-sm transition-all">1:1 상담</button>
+      <button onclick="showTab('settings')" id="tab-settings" class="tab-inactive pb-3 text-sm transition-all">정보 수정</button>
+    </div>
+
+    <!-- 위시리스트 -->
+    <div id="panel-wishlist" style="display:none;">
+      <div id="wishlist-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+    </div>
+
+    <!-- 주문 내역 -->
+    <div id="panel-orders">
+      <div class="flex flex-col gap-4" id="orders-list"></div>
+    </div>
+
+    <!-- 1:1 상담 -->
+    <div id="panel-consult" style="display:none;">
+      <div class="max-w-2xl">
+        <!-- 새 문의 작성 -->
+        <div class="rounded-xl border border-outline-variant/20 p-6 card mb-6">
+          <h3 class="text-base font-bold text-primary mb-1">새 문의 작성</h3>
+          <p class="text-xs text-on-surface-variant mb-4">문의를 남기시면 상담사가 확인 후 답변드려요. (보통 1~2분 내 답변)</p>
+          <select id="consult-category" class="w-full mb-3 px-4 py-3 rounded-lg border border-outline-variant text-on-surface text-sm focus:outline-none focus:border-primary" style="background:#f5f8f3;font-family:'Pretendard',sans-serif;">
+            <option value="배송">배송 문의</option>
+            <option value="교환반품">교환·반품</option>
+            <option value="품질">품질·보증</option>
+            <option value="결제">결제 문의</option>
+            <option value="식물관리">식물 관리</option>
+            <option value="기타">기타 문의</option>
+          </select>
+          <textarea id="consult-text" rows="4" placeholder="문의 내용을 자세히 적어주세요." class="w-full px-4 py-3 rounded-lg border border-outline-variant text-on-surface text-sm focus:outline-none focus:border-primary resize-none" style="background:#f5f8f3;font-family:'Pretendard',sans-serif;"></textarea>
+          <button onclick="submitInquiry()" class="w-full mt-3 bg-primary text-white py-3 rounded-lg font-bold text-sm hover:opacity-90 transition-all" style="font-family:'Pretendard',sans-serif;">
+            문의 접수하기
+          </button>
+        </div>
+
+        <!-- 문의 내역 -->
+        <h3 class="text-base font-bold text-primary mb-4">내 문의 내역</h3>
+        <div id="inquiry-list" class="flex flex-col gap-3"></div>
+      </div>
+    </div>
+
+    <!-- 정보 수정 -->
+    <div id="panel-settings" style="display:none;">
+      <div class="max-w-md space-y-5">
+        <div>
+          <label class="block text-sm font-semibold text-on-surface-variant mb-2">이름</label>
+          <input id="edit-name" type="text" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-low text-on-surface focus:outline-none focus:border-primary transition-colors" style="font-family:'Pretendard',sans-serif;"/>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-on-surface-variant mb-2">이메일</label>
+          <input id="edit-email" type="email" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-low text-on-surface focus:outline-none focus:border-primary transition-colors" style="font-family:'Pretendard',sans-serif;"/>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-on-surface-variant mb-2">휴대폰 번호</label>
+          <input id="edit-phone" type="tel" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-low text-on-surface focus:outline-none focus:border-primary transition-colors" style="font-family:'Pretendard',sans-serif;"/>
+        </div>
+        <div class="pt-2 border-t border-outline-variant/20">
+          <label class="block text-sm font-semibold text-on-surface-variant mb-2">새 비밀번호 <span class="text-outline font-normal">(변경 시에만 입력)</span></label>
+          <input id="edit-pw" type="password" placeholder="새 비밀번호" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-low text-on-surface focus:outline-none focus:border-primary transition-colors mb-3" style="font-family:'Pretendard',sans-serif;"/>
+          <input id="edit-pw-confirm" type="password" placeholder="새 비밀번호 확인" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-low text-on-surface focus:outline-none focus:border-primary transition-colors" style="font-family:'Pretendard',sans-serif;"/>
+        </div>
+        <button onclick="saveSettings()" class="w-full bg-primary text-white py-4 rounded-lg font-bold text-base hover:opacity-90 transition-all" style="font-family:'Pretendard',sans-serif;">
+          저장하기
+        </button>
+        <button onclick="if(confirm('정말 탈퇴하시겠어요?')) deleteAccount()"
+          class="w-full py-3 rounded-lg border border-red-200 text-red-400 text-sm font-semibold hover:border-red-400 hover:text-red-500 transition-all">
+          회원 탈퇴
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer data-nhj-footer></footer>
+
+  <script>
+  // 상품 데이터 (위시리스트용)
+  const PRODUCTS = [
+    { id:1,  name:'여인목',        label:'실내용 • 대형',       price:89000,  img:'https://contents.sixshop.com/thumbnails/uploadedFiles/20883/product/image_1701421663258_750.jpg' },
+    { id:2,  name:'아라우카리아',  label:'관상수 • 대형',        price:75000,  img:'https://contents.sixshop.com/thumbnails/uploadedFiles/20883/product/image_1732090805163_750.jpg' },
+    { id:3,  name:'프렌치라벤더', label:'반음지 • 중형',        price:22000,  img:'https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/d0ca/aa953a48c411da0806a070506750821575bcbbe0e19093665ed5de224da7.png' },
+    { id:4,  name:'보석란',        label:'반음지 • 중형',        price:50000,  img:'https://botanical.house/wp-content/uploads/2020/09/re_3bdb1c.jpg' },
+    { id:5,  name:'유칼립투스',    label:'덩굴 • 수경재배',      price:25000,  img:'https://f-mans.com/data/goods/1/2024/02/861_temp_17078039247780view.jpg' },
+    { id:6,  name:'떡갈고무나무', label:'관상수 • 공기정화',    price:100000, img:'https://contents.sixshop.com/thumbnails/uploadedFiles/20883/product/image_1639040636066_750.jpeg' },
+    { id:7,  name:'바질',          label:'허브 • 식용',          price:5000,   img:'https://housoop.com/data/goods/11/2023/06/255_temp_16861853484336view.jpg' },
+    { id:8,  name:'개운죽',        label:'초보자 • 수경재배',    price:3000,   img:'https://item.elandrs.com/upload/prd/orgimg/889/2108223889_0000001.jpg?w=750&h=&q=100' },
+    { id:9,  name:'뱅갈고무나무', label:'실내용 • 대형',        price:80000,  img:'https://www.cultwo-flower.com/shopimages/c2c2/025004000077.jpg' },
+    { id:10, name:'무륜주',        label:'선인장 • 중형',        price:200000, img:'https://contents.sixshop.com/thumbnails/uploadedFiles/20883/product/image_1758013443840_1500.jpeg' },
+    { id:11, name:'호야',          label:'공기정화 • 덩굴',      price:19000,  img:'https://www.wishbucket.io/_next/image?url=https%3A%2F%2Fd2gfz7wkiigkmv.cloudfront.net%2Fpickin%2F2%2F1%2F2%2FInYl-guhQP6EJfp8yLjSrw&w=1080&q=75' },
+    { id:12, name:'아데늄',        label:'희귀식물 • 사막장미',  price:35000,  img:'https://ecimg.cafe24img.com/pg955b49925335084/sikmulhaengsung/web/product/small/20260110/9f9eab17193fa454ecc165fce10288de.jpg' },
+    { id:13, name:'스킨답서스',    label:'수경재배 • 초보자',    price:8000,   img:'https://www.nongsaro.go.kr/cms_contents/301/19716_MF_ATTACH_01.gif' },
+    { id:14, name:'관음죽',        label:'공기정화 • 대형',      price:50000,  img:'https://nongsaro.go.kr/cms_contents/301/12963_MF_ATTACH_01.jpg' },
+    { id:15, name:'테이블야자',    label:'인테리어 • 대형',      price:80000,  img:'https://www.ozflower.co.kr/data/item/thumb-1563437388698l0_700x700.jpg' },
+    { id:16, name:'스투키',        label:'방치형 • 전자파차단',  price:18000,  img:'https://image.8dogam.com/resized/product/asset/v1/upload/bb18569146594bf797104c77e448c944.jpg?type=big&res=2x&ext=webp' },
+  ];
+
+  // 세션 확인
+  const session = JSON.parse(localStorage.getItem('nhj-session') || 'null');
+  if (!session) { location.href = 'index7.html'; }
+  // 프로필 표시
+  document.getElementById('profile-name').textContent  = session?.name  || '회원';
+  document.getElementById('profile-email').textContent = session?.email || '';
+
+  // 설정 폼 초기값
+  document.getElementById('edit-name').value  = session?.name  || '';
+  document.getElementById('edit-email').value = session?.email || '';
+  document.getElementById('edit-phone').value = session?.phone || '';
+
+  // 탭 전환
+  function showTab(tab) {
+    ['wishlist','orders','settings','consult'].forEach(t => {
+      document.getElementById('panel-' + t).style.display = t === tab ? '' : 'none';
+      document.getElementById('tab-' + t).className = t === tab
+        ? 'tab-active pb-3 text-sm transition-all'
+        : 'tab-inactive pb-3 text-sm transition-all';
+    });
+    if (tab === 'wishlist') renderWishlist();
+    if (tab === 'orders')   renderOrders();
+    if (tab === 'consult')  initConsult();
+  }
+
+  // 위시리스트 렌더
+  function renderWishlist() {
+    const list = JSON.parse(localStorage.getItem('nhj-wishlist') || '[]');
+    const grid = document.getElementById('wishlist-grid');
+    const items = PRODUCTS.filter(p => list.includes(String(p.id)));
+
+    if (items.length === 0) {
+      grid.innerHTML = `
+        <div class="col-span-full flex flex-col items-center py-20 text-on-surface-variant">
+          <span class="material-symbols-outlined mb-4 opacity-30" style="font-size:48px;">favorite</span>
+          <p class="text-base font-semibold">위시리스트가 비어있어요</p>
+          <p class="text-sm mt-1">마음에 드는 식물을 저장해보세요</p>
+          <a href="index4.html" class="mt-6 px-6 py-3 bg-primary text-white rounded-lg text-sm font-semibold hover:opacity-90 transition-all">
+            쇼핑하러 가기
+          </a>
+        </div>`;
+      return;
+    }
+
+    grid.innerHTML = items.map(p => `
+      <div class="group cursor-pointer">
+        <div class="aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden relative mb-3">
+          <a href="index5.html?id=${p.id}" class="block w-full h-full">
+            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+          </a>
+          <div class="absolute bottom-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <button onclick="addToCartFromWishlist(${p.id})" title="장바구니 담기"
+              class="w-9 h-9 rounded-full flex items-center justify-center shadow-md"
+              style="background:#ffffff;color:#4a6545;">
+              <span class="material-symbols-outlined" style="font-size:18px;">shopping_cart</span>
+            </button>
+            <button onclick="removeWishlist(${p.id})" title="위시리스트 제거"
+              class="w-9 h-9 rounded-full flex items-center justify-center shadow-md"
+              style="background:#ffffff;">
+              <span class="material-symbols-outlined" style="font-size:16px;color:#e53935;font-variation-settings:'FILL' 1,'wght' 400;">favorite</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-base font-semibold text-primary">${p.name}</p>
+            <p class="text-xs text-on-surface-variant mt-0.5">${p.label}</p>
+          </div>
+          <p class="text-sm font-bold text-primary">₩${p.price.toLocaleString()}</p>
+        </div>
+      </div>`).join('');
+  }
+
+  function addToCartFromWishlist(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return;
+    if (typeof NHJCart !== 'undefined') {
+      NHJCart.addItem({ id: p.id, name: p.name, priceNum: p.price, price: p.price, img: p.img, size: 'Medium' });
+      if (typeof NHJToast !== 'undefined') NHJToast.show(p.name + '을(를) 장바구니에 담았어요 🌿');
+    }
+  }
+
+  function removeWishlist(id) {
+    let list = JSON.parse(localStorage.getItem('nhj-wishlist') || '[]');
+    list = list.filter(i => i !== String(id));
+    localStorage.setItem('nhj-wishlist', JSON.stringify(list));
+    renderWishlist();
+    if (typeof NHJToast !== 'undefined') NHJToast.show('위시리스트에서 제거했어요');
+  }
+
+  // 주문 내역
+  // ───────── 1:1 상담 (티켓 방식: 접수 → 1분 뒤 답변) ─────────
+  const CONSULT_KEY = '';  // Gemini 키 넣으면 매크로 외 질문은 AI가 답변
+  const CONSULT_MODELS = ['gemini-2.5-flash', 'gemini-2.5-flash-lite'];
+  const REPLY_DELAY = 60 * 1000;  // 답변 도착까지 1분 (데모용. 실서비스는 더 길게)
+
+  const CONSULT_MACRO = [
+    { kw: ['배송', '며칠', '얼마나 걸', '언제'], a: '주문 후 평균 2~3일 내에 배송됩니다 🚚 10만원 이상 구매 시 무료 배송이며, 제주·도서산간은 1~2일 더 소요될 수 있어요. 배송 현황은 [주문/배송 조회] 탭에서 실시간으로 확인하실 수 있습니다.' },
+    { kw: ['교환', '반품', '환불', '취소'], a: '상품 수령 후 7일 이내 교환·반품이 가능해요 📦 단순 변심은 왕복 배송비가 부과되며, 식물 상태 이상은 무료로 처리해드립니다.' },
+    { kw: ['보증', '죽', '시들', '하자'], a: '모든 식물은 수령 후 2주간 무상 보증이 적용돼요 🌿 정상적으로 관리했는데도 문제가 생기면 사진과 함께 문의주시면 재배송 또는 환불해드립니다.' },
+    { kw: ['결제', '카드', '무통장', '계좌'], a: '신용카드, 계좌이체, 간편결제(카카오페이·네이버페이)를 지원해요 💳 결제 오류 시 잠시 후 다시 시도하시거나 다른 수단을 이용해주세요.' },
+    { kw: ['포장', '선물', '래핑'], a: '선물 포장 서비스를 제공하고 있어요 🎁 주문 시 요청사항에 적어주시면 정성껏 포장해드리고, 메시지 카드도 함께 넣어드려요.' },
+    { kw: ['물', '햇빛', '노래', '벌레', '분갈이', '비료'], a: '식물 관리 문의 주셨네요 🌱 햇빛은 밝은 그늘, 물은 겉흙이 마르면 듬뿍 주는 게 기본이에요. 구체적인 증상을 알려주시면 더 자세히 안내해드릴게요!' },
+  ];
+
+  function _macro(text) {
+    for (const m of CONSULT_MACRO) if (m.kw.some(k => text.includes(k))) return m.a;
+    return null;
+  }
+
+  async function _consultAI(text) {
+    const prompt = `당신은 식물 쇼핑몰 'Natural Harmony Journey'의 친절한 고객 상담사입니다. 고객 문의에 정중하고 따뜻하게 3~4문장으로 답하세요. 쇼핑몰·식물 관련 질문에만 답하고 무관한 질문은 정중히 안내하세요. 한국어, 이모지 적절히 사용.\n\n고객 문의: ${text}`;
+    for (const model of CONSULT_MODELS) {
+      try {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${CONSULT_KEY}`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { temperature: 0.7, maxOutputTokens: 400 } }),
+        });
+        if (!res.ok) continue;
+        const data = await res.json();
+        const out = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (out) return out;
+      } catch (e) { console.error('상담 AI 오류:', e); }
+    }
+    return null;
+  }
+
+  function _loadInquiries() {
+    try { return JSON.parse(localStorage.getItem('nhj-inquiries') || '[]'); } catch { return []; }
+  }
+  function _saveInquiries(list) {
+    localStorage.setItem('nhj-inquiries', JSON.stringify(list));
+  }
+
+  const CAT_LABEL = { 배송:'배송 문의', 교환반품:'교환·반품', 품질:'품질·보증', 결제:'결제 문의', 식물관리:'식물 관리', 기타:'기타 문의' };
+
+  async function submitInquiry() {
+    const cat  = document.getElementById('consult-category').value;
+    const text = document.getElementById('consult-text').value.trim();
+    if (!text) {
+      if (typeof NHJToast !== 'undefined') NHJToast.show('문의 내용을 입력해주세요.', 'error');
+      return;
+    }
+
+    const inquiries = _loadInquiries();
+    const id = Date.now();
+    inquiries.push({
+      id, category: cat, question: text,
+      answer: null, status: 'pending',
+      createdAt: new Date().toLocaleString('ko-KR'),
+    });
+    _saveInquiries(inquiries);
+    document.getElementById('consult-text').value = '';
+    if (typeof NHJToast !== 'undefined') NHJToast.show('문의가 접수되었어요! 잠시 후 답변이 도착해요 🌿');
+    renderInquiries();
+
+    // 답변 생성 (매크로 우선, 없으면 AI) → REPLY_DELAY 후 반영
+    let answer = _macro(text);
+    if (!answer && CONSULT_KEY && CONSULT_KEY.trim()) answer = await _consultAI(text);
+    if (!answer) answer = '문의 주셔서 감사합니다 🌿 담당 상담사가 확인 후 순차적으로 답변드리고 있어요. 조금만 기다려주세요!';
+
+    setTimeout(() => {
+      const list = _loadInquiries();
+      const item = list.find(i => i.id === id);
+      if (item) { item.answer = answer; item.status = 'answered'; _saveInquiries(list); }
+      const panel = document.getElementById('panel-consult');
+      if (panel && panel.style.display !== 'none') renderInquiries();
+      if (typeof NHJToast !== 'undefined') NHJToast.show('상담 답변이 도착했어요! 💬');
+    }, REPLY_DELAY);
+  }
+
+  function renderInquiries() {
+    const list = _loadInquiries().slice().reverse();
+    const box  = document.getElementById('inquiry-list');
+    if (!box) return;
+
+    if (list.length === 0) {
+      box.innerHTML = `<div class="flex flex-col items-center py-12 text-on-surface-variant">
+        <span class="material-symbols-outlined mb-3 opacity-30" style="font-size:42px;">chat</span>
+        <p class="text-sm">아직 문의 내역이 없어요</p>
+      </div>`;
+      return;
+    }
+
+    box.innerHTML = list.map(q => {
+      const answered = q.status === 'answered';
+      return `
+      <div class="rounded-xl border border-outline-variant/20 p-5 card">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-semibold px-3 py-1 rounded-full bg-secondary-container text-primary">${CAT_LABEL[q.category] || q.category}</span>
+          <span class="text-xs font-bold px-3 py-1 rounded-full" style="${answered
+            ? 'background:rgba(74,101,69,.12);color:#4a6545;'
+            : 'background:rgba(232,163,61,.15);color:#c8821a;'}">
+            ${answered ? '✓ 답변 완료' : '⏳ 답변 대기중'}
+          </span>
+        </div>
+        <div class="flex gap-2 mb-3">
+          <span class="material-symbols-outlined text-primary" style="font-size:18px;flex-shrink:0;">help</span>
+          <div class="flex-1">
+            <p class="text-sm text-on-surface" style="white-space:pre-wrap;">${q.question}</p>
+            <p class="text-xs text-on-surface-variant mt-1">${q.createdAt}</p>
+          </div>
+        </div>
+        ${answered ? `
+        <div class="flex gap-2 pt-3 mt-1 border-t border-outline-variant/20">
+          <span class="material-symbols-outlined" style="font-size:18px;flex-shrink:0;color:#4a6545;">support_agent</span>
+          <div class="flex-1">
+            <p class="text-xs font-bold text-primary mb-1">상담사 답변</p>
+            <p class="text-sm text-on-surface" style="white-space:pre-wrap;line-height:1.6;">${q.answer}</p>
+          </div>
+        </div>` : `
+        <div class="pt-3 mt-1 border-t border-outline-variant/20">
+          <p class="text-xs text-on-surface-variant flex items-center gap-1.5">
+            <span class="material-symbols-outlined" style="font-size:14px;">schedule</span>
+            상담사가 답변을 준비하고 있어요. 잠시만 기다려주세요.
+          </p>
+        </div>`}
+      </div>`;
+    }).join('');
+  }
+
+  // 대기중 문의 답변 복원 (페이지 새로 열었을 때 시간 지난 것 처리)
+  function _restorePending() {
+    const list = _loadInquiries();
+    let changed = false;
+    list.forEach(q => {
+      if (q.status === 'pending' && Date.now() - q.id >= REPLY_DELAY) {
+        let answer = _macro(q.question);
+        if (!answer) answer = '문의 주셔서 감사합니다 🌿 담당 상담사가 확인했어요. 추가 문의는 언제든 남겨주세요!';
+        q.answer = answer; q.status = 'answered'; changed = true;
+      }
+    });
+    if (changed) _saveInquiries(list);
+  }
+
+  function initConsult() {
+    _restorePending();
+    renderInquiries();
+  }
+
+  // 배송 단계 계산 (주문 시각 기준 — 데모용: 분 단위)
+  function getDeliveryStatus(orderId) {
+    const elapsed = (Date.now() - orderId) / 1000 / 60; // 경과 분
+    if (elapsed < 1)  return { step: 0, label: '결제 완료',   color: '#73796f' };
+    if (elapsed < 3)  return { step: 1, label: '상품 준비중', color: '#e8a33d' };
+    if (elapsed < 10) return { step: 2, label: '배송중',      color: '#4a6545' };
+    return                   { step: 3, label: '배송 완료',   color: '#4a6545' };
+  }
+
+  const DELIVERY_STEPS = [
+    { icon: 'payments',       label: '결제완료' },
+    { icon: 'inventory_2',    label: '상품준비' },
+    { icon: 'local_shipping', label: '배송중' },
+    { icon: 'check_circle',   label: '배송완료' },
+  ];
+
+  function renderOrders() {
+    const orders = JSON.parse(localStorage.getItem('nhj-orders') || '[]');
+    const list   = document.getElementById('orders-list');
+
+    if (orders.length === 0) {
+      list.innerHTML = `
+        <div class="flex flex-col items-center py-20 text-on-surface-variant">
+          <span class="material-symbols-outlined mb-4 opacity-30" style="font-size:48px;">receipt_long</span>
+          <p class="text-base font-semibold">주문 내역이 없어요</p>
+          <p class="text-sm mt-1">첫 주문을 해보세요</p>
+          <a href="index4.html" class="mt-6 px-6 py-3 bg-primary text-white rounded-lg text-sm font-semibold hover:opacity-90 transition-all">
+            쇼핑하러 가기
+          </a>
+        </div>`;
+      return;
+    }
+
+    list.innerHTML = orders.slice().reverse().map(o => {
+      const st = getDeliveryStatus(o.id);
+      return `
+      <div class="rounded-xl border border-outline-variant/20 bg-surface-container-low card overflow-hidden">
+        <!-- 주문 헤더 (클릭 토글) -->
+        <div class="p-6 cursor-pointer" onclick="toggleOrderTrack(${o.id})">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs text-on-surface-variant">${o.date} · 주문번호 ${String(o.id).slice(-8)}</span>
+            <span class="text-xs font-bold px-3 py-1 rounded-full" style="background:${st.color}1a;color:${st.color};">${st.label}</span>
+          </div>
+          <div class="flex flex-col gap-3">
+            ${o.items.map(i => `
+              <div class="flex gap-3 items-center">
+                <img src="${i.img}" class="w-14 h-14 rounded-lg object-cover bg-surface-container"/>
+                <div class="flex-1">
+                  <p class="text-sm font-semibold">${i.name}</p>
+                  <p class="text-xs text-on-surface-variant">${i.size} · ${i.qty}개</p>
+                </div>
+                <p class="text-sm font-bold text-primary">₩${(i.price * i.qty).toLocaleString()}</p>
+              </div>`).join('')}
+          </div>
+          <div class="flex justify-between items-center mt-4 pt-4 border-t border-outline-variant/20">
+            <span class="text-sm text-on-surface-variant">총 결제금액</span>
+            <span class="text-base font-bold text-primary">₩${o.total.toLocaleString()}</span>
+          </div>
+          <div class="flex items-center justify-center gap-1 mt-3 text-xs text-on-surface-variant">
+            <span>배송 조회</span>
+            <span class="material-symbols-outlined order-chevron" id="chevron-${o.id}" style="font-size:16px;transition:transform .3s;">expand_more</span>
+          </div>
+        </div>
+
+        <!-- 배송 추적 (펼침) -->
+        <div id="track-${o.id}" style="display:none;" class="px-6 pb-6">
+          <div class="pt-5 border-t border-outline-variant/20">
+            <div class="flex items-center justify-between relative">
+              <!-- 진행 라인 -->
+              <div class="absolute left-0 right-0 top-5 h-0.5 bg-outline-variant/30" style="z-index:0;"></div>
+              <div class="absolute left-0 top-5 h-0.5 transition-all duration-500" style="z-index:0;background:#4a6545;width:${(st.step / 3) * 100}%;"></div>
+              ${DELIVERY_STEPS.map((s, idx) => {
+                const done   = idx <= st.step;
+                return `
+                <div class="flex flex-col items-center gap-2" style="z-index:1;position:relative;">
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                    style="background:${done ? '#4a6545' : 'var(--step-bg, #efeded)'};color:${done ? '#fff' : '#9ba298'};">
+                    <span class="material-symbols-outlined" style="font-size:20px;${done ? "font-variation-settings:'FILL' 1;" : ''}">${s.icon}</span>
+                  </div>
+                  <span class="text-[11px] font-semibold" style="color:${done ? '#4a6545' : '#9ba298'};">${s.label}</span>
+                </div>`;
+              }).join('')}
+            </div>
+            ${st.step === 3
+              ? '<p class="text-center text-xs text-on-surface-variant mt-5">🎉 배송이 완료되었어요! 식물과 함께 행복한 시간 보내세요.</p>'
+              : `<p class="text-center text-xs text-on-surface-variant mt-5">예상 도착: ${new Date(o.id + 1000*60*60*24*3).toLocaleDateString('ko-KR')}</p>`
+            }
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function toggleOrderTrack(id) {
+    const track   = document.getElementById('track-' + id);
+    const chevron = document.getElementById('chevron-' + id);
+    if (!track) return;
+    const open = track.style.display === 'none';
+    track.style.display = open ? 'block' : 'none';
+    if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+  }
+
+  // 정보 저장
+  function saveSettings() {
+    const name  = document.getElementById('edit-name').value.trim();
+    const email = document.getElementById('edit-email').value.trim();
+    const phone = document.getElementById('edit-phone').value.trim();
+    const pw    = document.getElementById('edit-pw').value;
+    const pwc   = document.getElementById('edit-pw-confirm').value;
+
+    if (!name || !email) {
+      if (typeof NHJToast !== 'undefined') NHJToast.show('이름과 이메일은 필수예요.', 'error');
+      return;
+    }
+    if (pw && pw !== pwc) {
+      if (typeof NHJToast !== 'undefined') NHJToast.show('비밀번호가 일치하지 않아요.', 'error');
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem('nhj-users') || '[]');
+    const idx   = users.findIndex(u => u.email === session.email);
+    if (idx !== -1) {
+      users[idx].name  = name;
+      users[idx].email = email;
+      users[idx].phone = phone;
+      if (pw) users[idx].password = pw;
+      localStorage.setItem('nhj-users', JSON.stringify(users));
+    }
+
+    const newSession = { ...session, name, email, phone };
+    localStorage.setItem('nhj-session', JSON.stringify(newSession));
+    document.getElementById('profile-name').textContent  = name;
+    document.getElementById('profile-email').textContent = email;
+    document.getElementById('edit-pw').value = '';
+    document.getElementById('edit-pw-confirm').value = '';
+
+    if (typeof NHJToast !== 'undefined') NHJToast.show('정보가 저장됐어요 ✓');
+  }
+
+  // 로그아웃
+  function handleLogout() {
+    localStorage.removeItem('nhj-session');
+    location.href = 'index.html';
+  }
+
+  // 회원 탈퇴
+  function deleteAccount() {
+    const users = JSON.parse(localStorage.getItem('nhj-users') || '[]');
+    const filtered = users.filter(u => u.email !== session.email);
+    localStorage.setItem('nhj-users', JSON.stringify(filtered));
+    localStorage.removeItem('nhj-session');
+    location.href = 'index.html';
+  }
+
+  // 초기 렌더 — 주문/배송 조회를 기본으로
+  renderOrders();
+  </script>
+
+  <script src="nhj-dark.js"></script>
+  <script src="nhj-header.js"></script>
+  <script src="nhj-chat.js"></script>
+</body>
+</html>
